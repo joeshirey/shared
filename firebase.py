@@ -1,10 +1,5 @@
 from google.cloud import firestore
 
-# Initialize Firebase Admin SDK
-#cred = credentials.Certificate("path/to/your/serviceAccountKey.json")   
-  # Replace with your actual path
-#firebase_admin.initialize_app(cred)
-
 def add_document(db, collection_name, document_id, data):
     """
     Adds a new document to the specified collection with the given ID and data.
@@ -58,8 +53,8 @@ def delete_document(db, collection_name, document_id):
     doc_ref = db.collection(collection_name).document(document_id)
     doc_ref.delete()
 
-def get_db():
-    return firestore.Client(project="project_name", database="db_name")
+def get_db(project_name, db_name):
+    return firestore.Client(project=project_name, database=db_name)
 
-def main():
-    return firestore.Client(project="project_name", database="db_name")
+def main(project_name, db_name):
+    return firestore.Client(project=project_name, database=db_name)
